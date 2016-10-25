@@ -1,12 +1,12 @@
 import sys
 import string
 import math as m
+import time
 # import numpy as np
 # import scipy as sp
 # from sp.special import lambertw
-# import time
 
-# start_time = time.time()
+start_time = time.time()
 
 print ("Φ(n) =  'nth' prime number")
 n = input("n = ")
@@ -76,9 +76,9 @@ PrimeNumbers0 = [prime(k) for k in NaturalNumbers] #creates a list of PrimeNumbe
 
 PrimeNumbers = [s.strip('None') for k in PrimeNumbers0]
 
-print (PrimeNumbers[n]) #this displays the 'nth' prime number
-# main()
-# print("---%s seconds ---" % (time.time() - start_time))
+print (PrimeNumbers[n - 1]) #this displays the 'nth' prime number
+
+print("---%s seconds ---" % (time.time() - start_time))
 
 # ----------------------------------------------------------------
 # ----------------------------------------------------------------
