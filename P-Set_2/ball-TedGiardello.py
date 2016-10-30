@@ -1,6 +1,6 @@
 #TRACK THE POSITION OF A BALL THAT DOES NOT BOUNCE IN A THREE DIMENTIAL VACCUM 
 
-g = 9.8 #m/s**2
+g = 9.78 #m/s**2
 
 initial_velocity_x = input("initial velocity: x component = ")
 
