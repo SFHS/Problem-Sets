@@ -13,7 +13,7 @@ wintype='pyglet' # use pyglet if possible, it's faster at event handling
 myWin = visual.Window((600.0,600.0),allowGUI=False,winType=wintype) 
 
 sans = ['Gill Sans MT', 'Arial','Helvetica','Verdana'] #use the first font found on this list 
-ask4key = visual.TextStim(myWin, text='Press a key as fast as you can RIGHT NOW!',font=sans, units='norm', height=.10,pos=(-.95,0),alignHoriz='left') 
+ask4key = visual.TextStim(myWin, text = 'Press a key as fast as you can RIGHT NOW!', font = sans, units = 'norm', height = .10, pos = (-.95,0), alignHoriz = 'left') 
 
 RT = core.Clock() # make a clock for capturing RT (reaction time)
 
@@ -46,7 +46,7 @@ while True: # replace the .... 's with spaces or a tab
     if theRT < 0.09:
         feedback = "CHEATER!"
 
-    if theRT < 0.5 :
+    if theRT < 0.5:
         feedback = "Pretty fast! Now wait for it..."
     else: feedback ="You can do better. C'mon now! ready....and ..."
     
