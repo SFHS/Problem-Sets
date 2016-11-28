@@ -6,16 +6,28 @@ get a keystoke
 measure reaction time 
 """ 
 from psychopy import visual, event, core 
-from random import random 
+from random import random
+import json
+import time
+import datetime
 
 #create a window to draw in 
 wintype='pyglet' # use pyglet if possible, it's faster at event handling 
-myWin = visual.Window((600.0,600.0),allowGUI=False,winType=wintype) 
+myWin = visual.Window((1950.0,1200.0),allowGUI=False,winType=wintype) 
 
 sans = ['Gill Sans MT', 'Arial','Helvetica','Verdana'] #use the first font found on this list 
 ask4key = visual.TextStim(myWin, text = 'Press a key as fast as you can RIGHT NOW!', font = sans, units = 'norm', height = .10, pos = (-.95,0), alignHoriz = 'left') 
 
 RT = core.Clock() # make a clock for capturing RT (reaction time)
+
+RTVector = []
+
+ts = time.time()
+st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+
+# filename = "C:\Users\tedmi\Documents\GitHub\Problem-Sets\P-Set_4\datafile" + str(st) +".txt"
+
+f = open('Will.txt', 'w')
 
 while True: # replace the .... 's with spaces or a tab 
     # clear any keystrokes before starting 
@@ -41,6 +53,9 @@ while True: # replace the .... 's with spaces or a tab
     thekey = allKeys[0][0].upper() 
     theRT = allKeys[0][1] 
 
+    # RTVector.append()
+    json.dump(theRT + ', ', f)
+
     if thekey =='ESCAPE': core.quit() 
 
     if theRT < 0.09:
@@ -61,4 +76,6 @@ while True: # replace the .... 's with spaces or a tab
 
     ask4key.setText('Press a key as fast as you can RIGHT NOW!') 
     # wait for 3-8 seconds to read feedback and have uncertain wait time before next trial 
-    core.wait(3+int(random()*6)) 
+    core.wait(3+int(random()*6))
+
+# json.dump(RTVector, f)
